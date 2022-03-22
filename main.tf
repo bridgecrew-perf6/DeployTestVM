@@ -28,9 +28,8 @@ module "subnet" {
 }
 
 module "publicip" {
-  count = 2
   source = "github.com/cbuxton1984/terraform_modules/public_ip"
-  pi_name = "Win2K19-demo-publicip-${count.index}"
+  pi_name = "windows-demo-vm-publicip"
   allocation_method = "Static"
   location = module.rg.rg_location
   rg_name = module.rg.rg_name
@@ -40,9 +39,8 @@ module "publicip" {
 # Virtual Machines
 
 module "windows_vm_2019" {
-  count = 1
   source ="github.com/cbuxton1984/terraform_modules/win_vm"
-  vm_name = "win2k19-demo-${count.index + 1}"
+  vm_name = "windows-demo-vm"
   location = module.rg.rg_location
   rg_name = module.rg.rg_name
   vm_size = "Standard_B2s"
