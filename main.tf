@@ -38,7 +38,7 @@ module "publicipwin" {
 
 module "publiciprhel" {
   source = "github.com/cbuxton1984/terraform_modules/public_ip"
-  pi_name = "windows-demo-vm-publicip"
+  pi_name = "rhel-demo-vm-publicip"
   allocation_method = "Static"
   location = module.rg.rg_location
   rg_name = module.rg.rg_name
